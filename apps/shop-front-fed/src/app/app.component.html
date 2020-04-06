@@ -6,3 +6,10 @@
   />
 </div>
 <div>Message: {{ hello$ | async | json }}</div>
+<h1>Products</h1>
+
+<ul>
+  <li *ngFor="let product of products" class="product">{{ product.title }}</li>
+</ul>
+
+<button id="add-product" (click)="addProduct()">Add Product</button>
