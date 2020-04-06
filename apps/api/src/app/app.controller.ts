@@ -1,6 +1,6 @@
 import { Controller, Get, Post } from '@nestjs/common';
 
-import { Product } from '@shop-front/api-interfaces';
+import { Product, Order } from '@shop-front/api-interfaces';
 
 import { AppService } from './app.service';
 
@@ -16,5 +16,15 @@ export class AppController {
   @Post('products')
   addProduct(): void {
     return this.appService.addProduct();
+  }
+
+  @Get('orders')
+  getOrders(): Order[] {
+    return this.appService.getOrders();
+  }
+
+  @Post('orders')
+  addOrder(): void {
+    return this.appService.addOrder();
   }
 }
