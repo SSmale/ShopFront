@@ -1,13 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { Product } from '@shop-front/api-interfaces';
+import { Product, Order } from '@shop-front/api-interfaces';
 
 @Injectable()
 export class AppService {
 
   products: Product[]
+  orders: Order[]
 
   constructor() {
-    this.products = [{ title: 'product 1' },{ title: 'product 2' }]
+    this.products = [];
+    this.orders = [];
   }
 
   getProducts(): Product[] {
@@ -18,5 +20,14 @@ export class AppService {
     this.products.push({
       title: `product ${this.products.length + 1}`
     })
+  }
+  getOrders(): Order[] {
+    return this.orders;
+  }
+
+  addOrder(): void {
+    // this.orders.push({})
+    console.log('addOrder');
+
   }
 }
