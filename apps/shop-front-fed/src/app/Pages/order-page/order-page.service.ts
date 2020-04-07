@@ -14,7 +14,7 @@ export class OrderPageService {
     return this.apiService.get('/api/products')
   }
 
-  async saveOrder(order: Order): Promise<any> {
-    return await this.apiService.post('/api/orders', order).toPromise()
+  saveOrder(order: Order): Promise<any> {
+    return this.apiService.post('/api/orders', order).toPromise()
   }
 }
