@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Product } from '../../../../../../libs/api-interfaces/src';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Product, Order } from '../../../../../../libs/api-interfaces/src';
+import { Observable } from 'rxjs';
 import { OrderPageService } from './order-page.service';
 
 @Component({
@@ -8,26 +8,38 @@ import { OrderPageService } from './order-page.service';
   templateUrl: './order-page.component.html',
   styleUrls: ['./order-page.component.css']
 })
-export class OrderPageComponent implements OnInit, OnDestroy {
+export class OrderPageComponent implements OnInit {
 
-  orders$: Product[]
+  products$: Observable<Product[]>;
 
-  private subs: Subscription[]
+  order: Order;
 
   constructor(private readonly orderService: OrderPageService) {
-    this.subs = [];
+    this.order = this.getEmptyOrder();
   }
 
   ngOnInit(): void {
-    this.subs.push(this.orderService.getProducts().subscribe(res => this.orders$ = res))
+    this.products$ = this.orderService.getProducts()
   }
 
-  ngOnDestroy(): void {
-    this.subs.forEach(sub => sub.unsubscribe())
+  onOrderSave(order: Order): void {
+    // this.orderService.saveOrder({ name: 'Simon', address: 'The Office', paid: true, products: [], total: 100 })
+    if (!order.address || !order.name || !order.hasOwnProperty('paid') || order.products.length === 0 || order.total < 0) {
+      console.error('There are missing fields');
+
+      return;
+    }
+    this.orderService.saveOrder(order)
   }
 
-  saveOrder(): void {
-    this.orderService.saveOrder({ name: 'Simon', address: 'The Office', paid: true, products: [], total: 100 })
+  private getEmptyOrder(): Order {
+    return {
+      address: undefined,
+      name: undefined,
+      paid: false,
+      products: [],
+      total: 0
+    }
   }
 
 }

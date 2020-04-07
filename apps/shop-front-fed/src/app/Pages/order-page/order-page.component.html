@@ -1,3 +1,10 @@
 <h3>Add an order</h3>
 
-<button (click)="saveOrder()">Save Order</button>
+<h1>Products</h1>
+
+<ul>
+  <li *ngFor="let product of products$ | async" class="product">{{ product.title }}</li>
+</ul>
+
+<shop-front-order-form [order]="order" [products]="products$ | async" (save)="onOrderSave($event)">
+</shop-front-order-form>
