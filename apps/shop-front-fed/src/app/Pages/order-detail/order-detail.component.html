@@ -1,3 +1,6 @@
-<p>
-  order-detail works! {{ id }}
-</p>
+<section>
+  {{ order$ | async | json}}
+  <div *ngIf="order$ | async as order">
+    {{order.name}}
+  </div>
+</section>
