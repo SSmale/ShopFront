@@ -27,4 +27,8 @@ export class OrderDetailComponent implements OnInit {
     this.order$ = this.orderService.getOrder(this.id);
   }
 
+  onSaveProgress(order: Order): void {
+    this.orderService.updateOrder(this.id, order)
+  }
+
 }

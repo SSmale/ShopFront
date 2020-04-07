@@ -14,4 +14,7 @@ export class OrderDetailService {
     return this.apiService.get(`/api/order/${id}`)
   }
 
+  updateOrder(id: number, order: Order): Promise<any> {
+    return this.apiService.put(`/api/order/${id}`, order).toPromise()
+  }
 }

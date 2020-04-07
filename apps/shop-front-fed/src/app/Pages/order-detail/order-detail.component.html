@@ -1,6 +1,23 @@
 <section>
-  {{ order$ | async | json}}
   <div *ngIf="order$ | async as order">
-    {{order.name}}
+    <div>
+      Customer Name: {{ order.name }}
+    </div>
+    <div>
+      Customer Address: {{ order.address }}
+    </div>
+    <div>
+      Order paid?: {{ order.paid }}
+    </div>
+    <div>
+      Total: {{ order.total }}
+    </div>
+    <h4>Products</h4>
+    <div *ngFor="let product of order.products">
+      <label for="{{product.title}}">{{ product.title}}</label>
+      <input type="checkbox" name="{{product.title}}" [(ngModel)]="product.picked">
+    </div>
+
+    <button (click)="onSaveProgress(order)">Save Progress</button>
   </div>
 </section>
