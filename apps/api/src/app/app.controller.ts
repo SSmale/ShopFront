@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 
 import { Product, Order } from '@shop-front/api-interfaces';
 
@@ -13,6 +13,11 @@ export class AppController {
     return this.appService.getProducts();
   }
 
+  @Get('product/:id')
+  getProduct(@Param('id') index: number): Product {
+    return this.appService.getProduct(index);
+  }
+
   @Post('products')
   addProduct(): void {
     return this.appService.addProduct();
@@ -21,6 +26,11 @@ export class AppController {
   @Get('orders')
   getOrders(): Order[] {
     return this.appService.getOrders();
+  }
+
+  @Get('order/:id')
+  getOrder(@Param('id') index: number): Order {
+    return this.appService.getOrder(index);
   }
 
   @Post('orders')

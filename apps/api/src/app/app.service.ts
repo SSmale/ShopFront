@@ -8,12 +8,16 @@ export class AppService {
   orders: Order[]
 
   constructor() {
-    this.products = [];
-    this.orders = [];
+    this.products = [{ title: 'I am a test product!' }];
+    this.orders = [{ name: 'Simon', address: 'The Office', paid: true, products: [], total: 100 }, { name: 'Deer', address: 'The House', paid: true, products: [], total: 1000 }];
   }
 
   getProducts(): Product[] {
     return this.products;
+  }
+
+  getProduct(index: number): Product {
+    return this.products[index];
   }
 
   addProduct(): void {
@@ -24,6 +28,10 @@ export class AppService {
 
   getOrders(): Order[] {
     return this.orders;
+  }
+
+  getOrder(index: number): Order {
+    return this.orders[index];
   }
 
   addOrder(order: Order): void {
