@@ -26,4 +26,8 @@ export class OrderPageComponent implements OnInit, OnDestroy {
     this.subs.forEach(sub => sub.unsubscribe())
   }
 
+  saveOrder(): void {
+    this.orderService.saveOrder({ name: 'Simon', address: 'The Office', paid: true, products: [], total: 100 })
+  }
+
 }
