@@ -1,8 +1,21 @@
 <section>
-  {{orders$ | json }}
-
-  <div *ngFor="let item of orders$">
-    {{ item.title }}
+  <div *ngFor="let item of orders$ | async">
+    <div>
+      Customer Name: {{ item.name }}
+    </div>
+    <div>
+      Customer Address: {{ item.address }}
+    </div>
+    <div>
+      Order paid?: {{ item.paid }}
+    </div>
+    <div>
+      Total: {{ item.total }}
+    </div>
+    <h4>Products</h4>
+    <div *ngFor="let product of item.products">
+      {{ product.title}}
+    </div>
   </div>
 
 </section>
