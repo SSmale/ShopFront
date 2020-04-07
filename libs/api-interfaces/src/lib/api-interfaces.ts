@@ -7,5 +7,9 @@ export interface Order {
   address: string;
   paid: boolean;
   total: number; // pennies
-  products: Product[]
+  products: OrderProduct[]
+}
+
+export interface OrderProduct extends Product {
+  picked: boolean;
 }
