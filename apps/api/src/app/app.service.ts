@@ -21,13 +21,12 @@ export class AppService {
       title: `product ${this.products.length + 1}`
     })
   }
+
   getOrders(): Order[] {
     return this.orders;
   }
 
-  addOrder(): void {
-    // this.orders.push({})
-    console.log('addOrder');
-
+  addOrder(order: Order): void {
+    this.orders.push(order)
   }
 }
