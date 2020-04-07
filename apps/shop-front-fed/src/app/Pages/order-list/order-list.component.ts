@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Product } from '../../../../../../libs/api-interfaces/src';
+import { Subscription } from 'rxjs';
+import { OrderListService } from './order-list.service';
 
 @Component({
   selector: 'shop-front-order-list',
@@ -11,7 +14,7 @@ export class OrderListComponent implements OnInit, OnDestroy {
 
   private subs: Subscription[]
 
-  constructor(private readonly orderService: OrderPageService) {
+  constructor(private readonly orderService: OrderListService) {
     this.subs = [];
   }
 
