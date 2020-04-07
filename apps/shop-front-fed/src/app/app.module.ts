@@ -18,8 +18,8 @@ import { OrderListModule } from './Pages/order-list/order-list.module';
     HttpClientModule,
     FormsModule,
     OrderPageModule,
-    AppRoutingModule,
-    OrderListModule
+    OrderListModule,
+    AppRoutingModule
   ],
   providers: [
     ApiService
