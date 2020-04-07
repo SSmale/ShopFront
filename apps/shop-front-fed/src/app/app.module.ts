@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ApiService } from './api.service';
 import { OrderPageModule } from './Pages/order-page/order-page.module';
 import { OrderListModule } from './Pages/order-list/order-list.module';
+import { AppSharedModule } from './app-shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { OrderListModule } from './Pages/order-list/order-list.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
+    AppSharedModule,
     OrderPageModule,
     OrderListModule,
     AppRoutingModule
