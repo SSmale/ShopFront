@@ -20,6 +20,6 @@ export class AppComponent {
   }
 
   addProduct(): void {
-    this.http.post('api/products',{}).subscribe(() => this.fetch());
+    this.http.post('api/products', {}).subscribe(() => this.fetch());
   }
 }
