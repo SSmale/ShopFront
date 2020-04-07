@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { OrderPageComponent } from './order-page.component';
 import { OrderPageService } from './order-page.service';
 import { OrderFormComponent } from '../../Components/order-form/order-form.component';
@@ -7,7 +6,6 @@ import { AppSharedModule } from '../../app-shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
     AppSharedModule
   ],
   providers: [OrderPageService],
