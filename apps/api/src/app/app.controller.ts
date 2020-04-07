@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 
 import { Product, Order } from '@shop-front/api-interfaces';
 
@@ -24,7 +24,7 @@ export class AppController {
   }
 
   @Post('orders')
-  addOrder(): void {
-    return this.appService.addOrder();
+  addOrder(@Body() body: Order): void {
+    return this.appService.addOrder(body);
   }
 }

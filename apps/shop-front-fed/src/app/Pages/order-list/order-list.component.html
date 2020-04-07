@@ -1,0 +1,8 @@
+<section>
+  {{orders$ | json }}
+
+  <div *ngFor="let item of orders$">
+    {{ item.title }}
+  </div>
+
+</section>
