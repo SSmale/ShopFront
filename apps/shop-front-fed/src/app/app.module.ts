@@ -8,6 +8,7 @@ import { ApiService } from './api.service';
 import { OrderPageModule } from './Pages/order-page/order-page.module';
 import { OrderListModule } from './Pages/order-list/order-list.module';
 import { AppSharedModule } from './app-shared.module';
+import { OrderDetailModule } from './Pages/order-detail/order-detail.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AppSharedModule } from './app-shared.module';
     AppSharedModule,
     OrderPageModule,
     OrderListModule,
+    OrderDetailModule,
     AppRoutingModule
   ],
   providers: [
