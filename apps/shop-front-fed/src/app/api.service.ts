@@ -9,20 +9,20 @@ export class ApiService {
 
   constructor(private readonly http: HttpClient) { }
 
-  get(url: string, params?: any): Observable<any> {
-    return this.http.get(url, params)
+  get(url: string): Observable<any> {
+    return this.http.get(url)
   }
 
-  post(url: string, params?: any): Observable<any> {
-    return this.http.post(url, params)
+  post(url: string, body?: any): Observable<any> {
+    return this.http.post(url, body)
   }
 
-  delete(url: string, params?: any): Observable<any> {
-    return this.http.delete(url, params)
+  delete(url: string): Observable<any> {
+    return this.http.delete(url)
   }
 
-  put(url: string, params?: any): Observable<any> {
-    return this.http.put(url, params)
+  put(url: string, body?: any): Observable<any> {
+    return this.http.put(url, body)
   }
 
 }
