@@ -80,8 +80,9 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:eslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
+            "eslintConfig": ".eslintrc.js",
             "tsConfig": [
               "apps/shop-front-fed/tsconfig.app.json",
               "apps/shop-front-fed/tsconfig.spec.json"
