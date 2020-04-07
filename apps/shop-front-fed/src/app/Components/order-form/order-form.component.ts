@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Order, Product } from '../../../../../../libs/api-interfaces/src';
 
 @Component({
@@ -8,12 +8,14 @@ import { Order, Product } from '../../../../../../libs/api-interfaces/src';
 })
 export class OrderFormComponent implements OnInit {
 
-  order: Partial<Order>;
+  @Input() order: Order;
+  @Input() products: Product[]
+
+  @Output() save: EventEmitter<Order> = new EventEmitter<Order>()
+
   product: Product
 
   constructor() {
-    this.order = {}
-    this.order.products = []
     this.product = {
       title: undefined
     }
@@ -27,6 +29,10 @@ export class OrderFormComponent implements OnInit {
     this.product = {
       title: undefined
     }
+  }
+
+  onAddOrder(): void {
+    this.save.emit(this.order)
   }
 
 }
