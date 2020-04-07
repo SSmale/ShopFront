@@ -4,21 +4,26 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { OrderFormComponent } from './Components/order-form/order-form.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ApiService } from './api.service';
+import { OrderPageModule } from './Pages/order-page/order-page.module';
+import { OrderListModule } from './Pages/order-list/order-list.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    OrderFormComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    OrderPageModule,
+    AppRoutingModule,
+    OrderListModule
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
