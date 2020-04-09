@@ -7,5 +7,5 @@ export interface Order {
   address: string;
   paid: boolean;
   total: number; // pennies
-  products: Product[]
+  products: Product[];
 }

@@ -21,13 +21,8 @@
             "polyfills": "apps/shop-front-fed/src/polyfills.ts",
             "tsConfig": "apps/shop-front-fed/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/shop-front-fed/src/favicon.ico",
-              "apps/shop-front-fed/src/assets"
-            ],
-            "styles": [
-              "apps/shop-front-fed/src/styles.scss"
-            ],
+            "assets": ["apps/shop-front-fed/src/favicon.ico", "apps/shop-front-fed/src/assets"],
+            "styles": ["apps/shop-front-fed/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -84,14 +79,8 @@
           "options": {
             "linter": "eslint",
             "config": "apps/shop-front-fed/.eslintrc.js",
-            "tsConfig": [
-              "apps/shop-front-fed/tsconfig.app.json",
-              "apps/shop-front-fed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/shop-front-fed/**"
-            ]
+            "tsConfig": ["apps/shop-front-fed/tsconfig.app.json", "apps/shop-front-fed/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!apps/shop-front-fed/**"]
           }
         },
         "test": {
@@ -124,15 +113,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:lint",
           "options": {
-            "tsConfig": [
-              "apps/shop-front-fed-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/shop-front-fed-e2e/**"
-            ]
+            "linter": "eslint",
+            "config": "apps/shop-front-fed-e2e/.eslintrc.js",
+            "tsConfig": ["apps/shop-front-fed-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/shop-front-fed-e2e/**"]
           }
         }
       }
@@ -150,9 +136,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -175,16 +159,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:lint",
           "options": {
-            "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api/**"
-            ]
+            "linter": "eslint",
+            "config": "apps/api/.eslintrc.js",
+            "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
         "test": {
@@ -204,16 +184,12 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:lint",
           "options": {
-            "tsConfig": [
-              "libs/api-interfaces/tsconfig.lib.json",
-              "libs/api-interfaces/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-interfaces/**"
-            ]
+            "linter": "eslint",
+            "config": "libs/api-interfaces/.eslintrc.js",
+            "tsConfig": ["libs/api-interfaces/tsconfig.lib.json", "libs/api-interfaces/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
           }
         },
         "test": {

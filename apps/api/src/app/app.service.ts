@@ -3,9 +3,8 @@ import { Product, Order } from '@shop-front/api-interfaces';
 
 @Injectable()
 export class AppService {
-
-  products: Product[]
-  orders: Order[]
+  products: Product[];
+  orders: Order[];
 
   constructor() {
     this.products = [];
@@ -18,8 +17,8 @@ export class AppService {
 
   addProduct(): void {
     this.products.push({
-      title: `product ${this.products.length + 1}`
-    })
+      title: `product ${this.products.length + 1}`,
+    });
   }
   getOrders(): Order[] {
     return this.orders;
@@ -28,6 +27,5 @@ export class AppService {
   addOrder(): void {
     // this.orders.push({})
     console.log('addOrder');
-
   }
 }

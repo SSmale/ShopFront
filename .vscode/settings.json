@@ -1,1 +1,7 @@
-{}
+{
+  "cSpell.words": [
+    "nestjs"
+  ],
+  "vsicons.presets.angular": true,
+  "typescript.format.insertSpaceAfterCommaDelimiter": true,
+}
