@@ -1,0 +1,25 @@
+<section>
+  {{ order | json }}
+  <h3>Add new order form</h3>
+  <label for="customer-name">Customer Name</label>
+  <input type="text" name="customer-name" id="customer-name" [(ngModel)]="order.name">
+
+  <label for="customer-address">Customer Address</label>
+  <textarea type="text" name="customer-address" id="customer-address" [(ngModel)]="order.address"></textarea>
+
+  <label for="order-paid">Has the customer paid for their order?</label>
+  <input type="checkbox" name="order-paid" id="order-paid" [(ngModel)]="order.paid">
+
+  <label for="order-total">Order Total</label>
+  <input type="number" name="order-total" id="order-total" [(ngModel)]="order.total">
+
+  <label for="products">Products</label>
+  <ul>
+    <li *ngFor="let product of order.products" id="{{ product.title }}">
+      {{ product.title }}
+    </li>
+  </ul>
+  <input type="text" name="" id="" [(ngModel)]="product.title">
+  <button (click)="onAddProduct()">Add product</button>
+  <button (click)="onAddOrder()">Save order</button>
+</section>
