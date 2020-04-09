@@ -3,38 +3,53 @@ import { Product, Order } from '@shop-front/api-interfaces';
 
 @Injectable()
 export class AppService {
-
-  products: Product[]
-  orders: Order[]
+  products: Product[];
+  orders: Order[];
 
   constructor() {
     this.products = [{ title: 'I am a test product!' }];
     this.orders = [
       {
-        name: 'Simon', address: 'The Office', paid: true, products: [{
-          title: 'Tea',
-          picked: false
-        }, {
-          title: 'Chocy Biscuits',
-          picked: false
-        }], total: 100
+        name: 'Simon',
+        address: 'The Office',
+        paid: true,
+        products: [
+          {
+            title: 'Tea',
+            picked: false,
+          },
+          {
+            title: 'Chocy Biscuits',
+            picked: false,
+          },
+        ],
+        total: 100,
       },
       {
-        name: 'Deer', address: 'The House', paid: true, products: [{
-          title: 'Tea',
-          picked: false
-        }, {
-          title: 'Chocy Biscuits',
-          picked: false
-        }, {
-          title: 'Potatoes',
-          picked: false
-        }, {
-          title: 'Jelly',
-          picked: false
-        }
-        ], total: 1000
-      }];
+        name: 'Deer',
+        address: 'The House',
+        paid: true,
+        products: [
+          {
+            title: 'Tea',
+            picked: false,
+          },
+          {
+            title: 'Chocy Biscuits',
+            picked: false,
+          },
+          {
+            title: 'Potatoes',
+            picked: false,
+          },
+          {
+            title: 'Jelly',
+            picked: false,
+          },
+        ],
+        total: 1000,
+      },
+    ];
   }
 
   getProducts(): Product[] {
@@ -47,8 +62,8 @@ export class AppService {
 
   addProduct(): void {
     this.products.push({
-      title: `product ${this.products.length + 1}`
-    })
+      title: `product ${this.products.length + 1}`,
+    });
   }
 
   getOrders(): Order[] {
@@ -64,6 +79,6 @@ export class AppService {
   }
 
   addOrder(order: Order): void {
-    this.orders.push(order)
+    this.orders.push(order);
   }
 }

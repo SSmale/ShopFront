@@ -11,9 +11,7 @@ import { AppSharedModule } from './app-shared.module';
 import { OrderDetailModule } from './Pages/order-detail/order-detail.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -21,12 +19,9 @@ import { OrderDetailModule } from './Pages/order-detail/order-detail.module';
     OrderPageModule,
     OrderListModule,
     OrderDetailModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [
-    ApiService,
-    Title
-  ],
-  bootstrap: [AppComponent]
+  providers: [ApiService, Title],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

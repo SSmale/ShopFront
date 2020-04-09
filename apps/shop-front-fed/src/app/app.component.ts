@@ -6,20 +6,15 @@ import { filter, map } from 'rxjs/operators';
 @Component({
   selector: 'shop-front-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
-  constructor(
-    private titleService: Title,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-  ) { }
+  constructor(private titleService: Title, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     const appTitle = this.titleService.getTitle();
-    this.router
-      .events.pipe(
+    this.router.events
+      .pipe(
         filter(event => event instanceof NavigationEnd),
         map(() => {
           let child = this.activatedRoute.firstChild;
@@ -30,8 +25,9 @@ export class AppComponent implements OnInit {
             return child.snapshot.data['title'];
           }
           return appTitle;
-        })
-      ).subscribe((ttl: string) => {
+        }),
+      )
+      .subscribe((ttl: string) => {
         this.titleService.setTitle(`Shop Front ${ttl}`);
       });
   }

@@ -7,7 +7,7 @@ export interface Order {
   address: string;
   paid: boolean;
   total: number; // pennies
-  products: OrderProduct[]
+  products: OrderProduct[];
 }
 
 export interface OrderProduct extends Product {

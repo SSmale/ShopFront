@@ -11,9 +11,8 @@ describe('OrderFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderFormComponent ]
-    })
-    .compileComponents();
+      declarations: [OrderFormComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
