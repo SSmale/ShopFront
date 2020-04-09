@@ -1,30 +1,29 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
-    },
+    "root": true,
     "parser": "@typescript-eslint/parser",
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier/@typescript-eslint",
-        "plugin:prettier/recommended"
-    ],
-    "plugins": [
-        "prettier",
-        "@typescript-eslint",
-    ],
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module",
         "project": "./tsconfig.json"
     },
+    "plugins": [
+        "@typescript-eslint",
+        "@nrwl/nx"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
     "rules": {
         "prettier/prettier": [
             "error"
         ],
         "@typescript-eslint/class-name-casing": "error",
+        "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/consistent-type-definitions": "error",
         "@typescript-eslint/explicit-member-accessibility": [
             "off",
@@ -40,6 +39,22 @@ module.exports = {
         "@typescript-eslint/no-non-null-assertion": "error",
         "@typescript-eslint/prefer-function-type": "error",
         "@typescript-eslint/unified-signatures": "error",
+        "@typescript-eslint/no-parameter-properties": "off",
+        "@nrwl/nx/enforce-module-boundaries": [
+            "error",
+            {
+                "allow": [],
+                "depConstraints": [
+                    {
+                        "sourceTag": "*",
+                        "onlyDependOnLibsWithTags": [
+                            "*"
+                        ]
+                    }
+                ],
+                "enforceBuildableLibDependency": true
+            }
+        ],
         "arrow-body-style": "error",
         "camelcase": "off",
         "constructor-super": "error",
