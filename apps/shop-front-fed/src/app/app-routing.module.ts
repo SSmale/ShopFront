@@ -6,10 +6,15 @@ import { OrderDetailComponent } from './Pages/order-detail/order-detail.componen
 import { OrderListComponent } from './Pages/order-list/order-list.component';
 
 const routes: Routes = [
-  { path: 'order-form', component: OrderPageComponent },
-  { path: 'orders', component: OrderListComponent },
-  { path: 'orders/:id', component: OrderDetailComponent },
-  { path: '**', component: PageNoFoundComponent }
+  { path: 'order-form', component: OrderPageComponent, data: { title: '- New Order Form' } },
+  { path: 'orders', component: OrderListComponent, data: { title: '- All Orders' } },
+  { path: 'orders/:id', component: OrderDetailComponent, data: { title: '- Single Order' } },
+  {
+    path: '',
+    redirectTo: '/orders',
+    pathMatch: 'full'
+  },
+  { path: '**', component: PageNoFoundComponent, data: { title: '- 404 - Page Not Found' } }
 ]
 
 @NgModule({
