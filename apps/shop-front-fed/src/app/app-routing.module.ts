@@ -9,6 +9,11 @@ const routes: Routes = [
   { path: 'order-form', component: OrderPageComponent },
   { path: 'orders', component: OrderListComponent },
   { path: 'orders/:id', component: OrderDetailComponent },
+  {
+    path: '',
+    redirectTo: '/orders',
+    pathMatch: 'full'
+  },
   { path: '**', component: PageNoFoundComponent }
 ]
 
