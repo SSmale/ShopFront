@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -24,7 +24,8 @@ import { OrderDetailModule } from './Pages/order-detail/order-detail.module';
     AppRoutingModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    Title
   ],
   bootstrap: [AppComponent]
 })
