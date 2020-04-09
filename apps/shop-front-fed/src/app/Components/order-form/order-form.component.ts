@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Order, Product } from '../../../../../../libs/api-interfaces/src';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Order, Product, OrderProduct } from '../../../../../../libs/api-interfaces/src';
 
 @Component({
   selector: 'shop-front-order-form',
@@ -8,15 +8,15 @@ import { Order, Product } from '../../../../../../libs/api-interfaces/src';
 })
 export class OrderFormComponent implements OnInit {
 
-  order: Partial<Order>;
-  product: Product
+  @Input() order: Order;
+  @Input() products: Product[]
+
+  @Output() save: EventEmitter<Order> = new EventEmitter<Order>()
+
+  product: OrderProduct
 
   constructor() {
-    this.order = {}
-    this.order.products = []
-    this.product = {
-      title: undefined
-    }
+    this.product = this.getEmptyOrderProduct()
   }
 
   ngOnInit() {
@@ -24,8 +24,17 @@ export class OrderFormComponent implements OnInit {
 
   onAddProduct(): void {
     this.order.products.push(this.product)
-    this.product = {
-      title: undefined
+    this.product = this.getEmptyOrderProduct()
+  }
+
+  onAddOrder(): void {
+    this.save.emit(this.order)
+  }
+
+  private getEmptyOrderProduct(): OrderProduct {
+    return {
+      title: undefined,
+      picked: false
     }
   }
 
