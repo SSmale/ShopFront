@@ -1,0 +1,22 @@
+<section>
+  <div *ngFor="let item of orders$ | async; let i = index">
+    <h2><a [routerLink]="[ '/orders/',  i ]">Order no{{i}}</a></h2>
+    <div>
+      Customer Name: {{ item.name }}
+    </div>
+    <div>
+      Customer Address: {{ item.address }}
+    </div>
+    <div>
+      Order paid?: {{ item.paid }}
+    </div>
+    <div>
+      Total: {{ item.total }}
+    </div>
+    <h4>Products</h4>
+    <div *ngFor="let product of item.products">
+      {{ product.title}} - Picked? {{product.picked}}
+    </div>
+  </div>
+
+</section>
