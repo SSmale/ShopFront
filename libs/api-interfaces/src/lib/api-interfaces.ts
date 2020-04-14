@@ -1,15 +1,17 @@
-export interface Product {
+export interface IProduct {
   title: string;
 }
 
-export interface Order {
+export interface IOrder {
+  id: number;
   name: string;
   address: string;
   paid: boolean;
   total: number; // pennies
-  products: OrderProduct[];
+  products: IOrderProduct[];
 }
 
-export interface OrderProduct extends Product {
+export interface IOrderProduct {
+  product: IProduct;
   picked: boolean;
 }
