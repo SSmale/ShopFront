@@ -25,8 +25,8 @@ export class OrderController {
   }
 
   @Put('/:id')
-  updateOrder(@Param('id') index: string, @Body() body: IOrder): void {
-    this.orderService.update(index, body);
+  updateOrder(@Param('id') index: string, @Body() body: IOrder): Promise<IOrder> {
+    return this.orderService.update(index, body);
   }
 
   @Post('')
