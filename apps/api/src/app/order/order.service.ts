@@ -19,7 +19,7 @@ export class OrderService {
   }
 
   findOne(id: string): Promise<Order> {
-    return this.ordersRepository.findOne(id);
+    return this.ordersRepository.findOne(id, { relations: ['products', 'products.product'] });
   }
 
   async remove(id: string): Promise<void> {
