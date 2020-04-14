@@ -47,4 +47,10 @@ export class OrderService {
 
     return this.ordersRepository.findOne(orderRes.id);
   }
+
+  async update(id: string, order: IOrder): Promise<IOrder> {
+    await this.ordersRepository.update(id, order);
+
+    return this.ordersRepository.findOne(id);
+  }
 }

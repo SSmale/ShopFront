@@ -24,10 +24,10 @@ export class OrderController {
     return this.orderService.findOne(index);
   }
 
-  // @Put('/:id')
-  // updateOrder(@Param('id') index: number, @Body() body: IOrder): void {
-  //   this.appService.updateOrder(index, body);
-  // }
+  @Put('/:id')
+  updateOrder(@Param('id') index: string, @Body() body: IOrder): void {
+    this.orderService.update(index, body);
+  }
 
   @Post('')
   addOrder(@Body() body: IOrder): Promise<IOrder> {
