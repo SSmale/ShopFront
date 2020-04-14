@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 
-import { Product, Order } from '@shop-front/api-interfaces';
+import { IProduct, IOrder } from '@shop-front/api-interfaces';
 
 import { AppService } from './app.service';
 
@@ -9,12 +9,12 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('products')
-  getProducts(): Product[] {
+  getProducts(): IProduct[] {
     return this.appService.getProducts();
   }
 
   @Get('product/:id')
-  getProduct(@Param('id') index: number): Product {
+  getProduct(@Param('id') index: number): IProduct {
     return this.appService.getProduct(index);
   }
 
@@ -24,22 +24,22 @@ export class AppController {
   }
 
   @Get('orders')
-  getOrders(): Order[] {
+  getOrders(): IOrder[] {
     return this.appService.getOrders();
   }
 
   @Get('order/:id')
-  getOrder(@Param('id') index: number): Order {
+  getOrder(@Param('id') index: number): IOrder {
     return this.appService.getOrder(index);
   }
 
   @Put('order/:id')
-  updateOrder(@Param('id') index: number, @Body() body: Order): void {
-    this.appService.updateOrder(index, body)
+  updateOrder(@Param('id') index: number, @Body() body: IOrder): void {
+    this.appService.updateOrder(index, body);
   }
 
   @Post('orders')
-  addOrder(@Body() body: Order): void {
+  addOrder(@Body() body: IOrder): void {
     return this.appService.addOrder(body);
   }
 }

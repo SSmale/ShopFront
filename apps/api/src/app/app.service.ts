@@ -1,62 +1,64 @@
 import { Injectable } from '@nestjs/common';
-import { Product, Order } from '@shop-front/api-interfaces';
+import { IProduct, IOrder } from '@shop-front/api-interfaces';
 
 @Injectable()
 export class AppService {
-  products: Product[];
-  orders: Order[];
+  products: IProduct[];
+  orders: IOrder[];
 
   constructor() {
     this.products = [{ title: 'I am a test product!' }];
     this.orders = [
-      {
-        name: 'Simon',
-        address: 'The Office',
-        paid: true,
-        products: [
-          {
-            title: 'Tea',
-            picked: false,
-          },
-          {
-            title: 'Chocy Biscuits',
-            picked: false,
-          },
-        ],
-        total: 100,
-      },
-      {
-        name: 'Deer',
-        address: 'The House',
-        paid: true,
-        products: [
-          {
-            title: 'Tea',
-            picked: false,
-          },
-          {
-            title: 'Chocy Biscuits',
-            picked: false,
-          },
-          {
-            title: 'Potatoes',
-            picked: false,
-          },
-          {
-            title: 'Jelly',
-            picked: false,
-          },
-        ],
-        total: 1000,
-      },
+      // {
+      //   id: -1,
+      //   name: 'Simon',
+      //   address: 'The Office',
+      //   paid: true,
+      //   products: [
+      //     {
+      //       title: 'Tea',
+      //       picked: false,
+      //     },
+      //     {
+      //       title: 'Chocy Biscuits',
+      //       picked: false,
+      //     },
+      //   ],
+      //   total: 100,
+      // },
+      // {
+      //   id: -2,
+      //   name: 'Deer',
+      //   address: 'The House',
+      //   paid: true,
+      //   products: [
+      //     {
+      //       title: 'Tea',
+      //       picked: false,
+      //     },
+      //     {
+      //       title: 'Chocy Biscuits',
+      //       picked: false,
+      //     },
+      //     {
+      //       title: 'Potatoes',
+      //       picked: false,
+      //     },
+      //     {
+      //       title: 'Jelly',
+      //       picked: false,
+      //     },
+      //   ],
+      //   total: 1000,
+      // },
     ];
   }
 
-  getProducts(): Product[] {
+  getProducts(): IProduct[] {
     return this.products;
   }
 
-  getProduct(index: number): Product {
+  getProduct(index: number): IProduct {
     return this.products[index];
   }
 
@@ -66,19 +68,19 @@ export class AppService {
     });
   }
 
-  getOrders(): Order[] {
+  getOrders(): IOrder[] {
     return this.orders;
   }
 
-  getOrder(index: number): Order {
+  getOrder(index: number): IOrder {
     return this.orders[index];
   }
 
-  updateOrder(index: number, order: Order): void {
+  updateOrder(index: number, order: IOrder): void {
     this.orders[index] = order;
   }
 
-  addOrder(order: Order): void {
+  addOrder(order: IOrder): void {
     this.orders.push(order);
   }
 }

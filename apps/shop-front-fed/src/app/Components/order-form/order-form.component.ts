@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Order, Product, OrderProduct } from '@shop-front/api-interfaces';
+import { IOrder, IProduct, IOrderProduct } from '@shop-front/api-interfaces';
 
 @Component({
   selector: 'shop-front-order-form',
@@ -7,12 +7,12 @@ import { Order, Product, OrderProduct } from '@shop-front/api-interfaces';
   styleUrls: ['./order-form.component.css'],
 })
 export class OrderFormComponent implements OnInit {
-  @Input() order: Order;
-  @Input() products: Product[];
+  @Input() order: IOrder;
+  @Input() products: IProduct[];
 
-  @Output() save: EventEmitter<Order> = new EventEmitter<Order>();
+  @Output() save: EventEmitter<IOrder> = new EventEmitter<IOrder>();
 
-  product: OrderProduct;
+  product: IOrderProduct;
 
   constructor() {
     this.product = this.getEmptyOrderProduct();
@@ -29,7 +29,7 @@ export class OrderFormComponent implements OnInit {
     this.save.emit(this.order);
   }
 
-  private getEmptyOrderProduct(): OrderProduct {
+  private getEmptyOrderProduct(): IOrderProduct {
     return {
       title: undefined,
       picked: false,

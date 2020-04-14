@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../api.service';
-import { Product, Order } from '../../../../../../libs/api-interfaces/src';
+import { IProduct, IOrder } from '@shop-front/api-interfaces';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderPageService {
+  constructor(private readonly apiService: ApiService) {}
 
-  constructor(private readonly apiService: ApiService) { }
-
-  getProducts(): Observable<Product[]> {
-    return this.apiService.get('/api/products')
+  getProducts(): Observable<IProduct[]> {
+    return this.apiService.get('/api/products');
   }
 
-  saveOrder(order: Order): Promise<any> {
-    return this.apiService.post('/api/orders', order).toPromise()
+  saveOrder(order: IOrder): Promise<any> {
+    return this.apiService.post('/api/orders', order).toPromise();
   }
 }
