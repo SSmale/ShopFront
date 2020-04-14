@@ -10,9 +10,6 @@ export class Order implements IOrder {
   @Column()
   name: string;
 
-  @Column({ default: true })
-  isActive: boolean;
-
   @Column()
   address: string;
 

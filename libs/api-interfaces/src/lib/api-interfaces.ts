@@ -1,4 +1,5 @@
 export interface IProduct {
+  id: number;
   title: string;
 }
 
@@ -12,6 +13,8 @@ export interface IOrder {
 }
 
 export interface IOrderProduct {
+  id: number;
   product: IProduct;
+  order: IOrder;
   picked: boolean;
 }

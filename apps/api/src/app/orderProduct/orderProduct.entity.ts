@@ -11,7 +11,7 @@ export class OrderProduct implements IOrderProduct {
   @ManyToOne('Order', 'order')
   order: Order;
 
-  @OneToOne('Product')
+  @ManyToOne('Product', 'product')
   @JoinColumn()
   product: Product;
 
