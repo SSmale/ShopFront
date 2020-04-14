@@ -35,6 +35,8 @@ export class OrderService {
 
     const orderRes = await this.ordersRepository.save(order);
     // TODO: SSMALE - error handling?
+    // TODO: SSMALE - transacting?
+
     const op = orderDTO.products.map(orderProduct => {
       const thing = new OrderProduct();
       const saveable = {
