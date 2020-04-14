@@ -8,11 +8,10 @@ export class OrderProduct implements IOrderProduct {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne('Order', 'order')
+  @ManyToOne('Order', 'products')
   order: Order;
 
   @ManyToOne('Product', 'product')
-  @JoinColumn()
   product: Product;
 
   @Column({ default: false })

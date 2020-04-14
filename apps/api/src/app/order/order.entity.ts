@@ -19,6 +19,6 @@ export class Order implements IOrder {
   @Column()
   total: number;
 
-  @OneToMany('OrderProduct', 'orderProduct')
+  @OneToMany('OrderProduct', 'order')
   products: OrderProduct[];
 }
