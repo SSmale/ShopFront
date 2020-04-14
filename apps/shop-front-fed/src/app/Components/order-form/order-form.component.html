@@ -15,11 +15,11 @@
 
   <label for="products">Products</label>
   <ul>
-    <li *ngFor="let product of order.products" id="{{ product.title }}">
+    <li *ngFor="let product of order.products" id="{{ product.product.title }}">
       {{ product.title }}
     </li>
   </ul>
-  <input type="text" name="" id="" [(ngModel)]="product.title">
+  <input type="text" name="" id="" [(ngModel)]="product.product.title">
   <button (click)="onAddProduct()">Add product</button>
   <button (click)="onAddOrder()">Save order</button>
 </section>

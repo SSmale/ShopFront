@@ -31,7 +31,9 @@ export class OrderFormComponent implements OnInit {
 
   private getEmptyOrderProduct(): IOrderProduct {
     return {
-      title: undefined,
+      product: {
+        title: undefined,
+      },
       picked: false,
     };
   }
