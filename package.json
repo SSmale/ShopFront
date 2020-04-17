@@ -47,7 +47,7 @@
     "zone.js": "^0.10.2",
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
-    "@nestjs/platform-express": "^7.0.3",
+    "@nestjs/platform-express": "^7.0.8",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
