@@ -58,7 +58,7 @@
     "@angular-eslint/template-parser": "0.0.1-alpha.27",
     "@angular/cli": "9.1.0",
     "@angular/compiler-cli": "^9.1.0",
-    "@angular/language-service": "^9.1.1",
+    "@angular/language-service": "^9.1.9",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
     "@nrwl/cypress": "9.2.2",
